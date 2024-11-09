@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "../generate/streamdemo";
+
+service QuestionAnswer {
+    rpc Ask(stream Question) returns (stream Answer);
+}
+
+message Question {
+    string text = 1;
+}
+
+message Answer {
+    string text = 1;
+}
